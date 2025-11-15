@@ -6,24 +6,54 @@
   <title>Citracel Creative Services — The Power of Clean Creativity</title>
   <meta name="description" content="Citracel Creative Services — Clean, premium branding for small & growing businesses." />
   <style>
-    :root{
-      --green:#1f5b39;    /* slightly deeper green for header */
-      --accent:#28B463;
-      --deep:#0A4C75;
-      --gold:#D4AF37;
-      --white:#FFFFFF;
-      --muted:#E8EEF2;
-      --bg:#FBFCFC;
-      --max-width:1100px;
-    }
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:#0b0b0b;}
-    header{background:linear-gradient(90deg,var(--green),#267046); color:var(--white); padding:18px 12px;}
-    .container{max-width:var(--max-width); margin:0 auto; padding:0 12px;}
-    .brand-row{display:flex;align-items:center;gap:12px;}
-    .logo-img{width:64px;height:64px;border-radius:10px;object-fit:contain;background:transparent;display:block;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
-    h1{font-size:20px;margin:0;line-height:1.05}
-    p.lead{margin:4px 0 0;font-size:13px;opacity:0.95}
+    /* ===== Premium Gold Header (centered) ===== */
+header{
+  background: linear-gradient(180deg, #154529 0%, #1f5b39 100%); /* deeper green gradient */
+  color: var(--white);
+  padding: 20px 0 12px 0;
+  border-bottom: 2px solid rgba(0,0,0,0.08);
+}
+
+/* Centered brand badge */
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 6px 16px;
+}
+
+.logo-img {
+  width: 120px;            /* larger hero logo */
+  height: 120px;
+  border-radius: 16px;     /* subtle rounded corners */
+  object-fit: contain;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(0,0,0,0.02)); /* soft sheen */
+  border: 2px solid rgba(212,175,55,0.25);
+}
+
+/* Brand name & tagline centered below logo */
+.brand-text { text-align: center; margin-top: 4px; color: #fff; }
+.brand-text h1 { font-size: 20px; margin: 0; letter-spacing: 0.6px; font-weight:800; }
+.brand-text p { margin: 6px 0 0 0; font-size:13px; opacity:0.95; line-height:1.2; }
+
+/* Keep CTA buttons but smaller, centered below text */
+.header-cta { margin-top:12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.header-cta .btn { padding:10px 14px; border-radius:10px; font-weight:800; }
+
+/* Adjust for tablets/phones */
+@media (max-width:720px){
+  .logo-img { width:104px; height:104px; border-radius:12px; }
+  .brand-text h1 { font-size:18px; }
+  header{ padding:16px 0 10px 0; }
+}
+@media (max-width:420px){
+  .logo-img { width:92px; height:92px; }
+  .brand-text h1 { font-size:16px; }
+}
 
     /* Hero */
     .hero{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;padding:22px 0}
