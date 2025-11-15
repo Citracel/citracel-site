@@ -1,112 +1,102 @@
-<header>
-  <div class="header-inner">
-    <!-- Hero centered gold logo (expects Logo.png in repo root) -->
-    <img src="Logo.png" alt="Citracel logo" class="logo-img" role="img" aria-label="Citracel logo">
-    <div class="brand-text" role="banner">
-      <h1>Citracel Creative Services</h1>
-      <p>The Power of Clean Creativity — premium branding, posters & social systems for growing businesses.</p>
-    </div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Citracel Creative Services — The Power of Clean Creativity</title>
+  <meta name="description" content="Citracel Creative Services — clean, premium branding for growing businesses. Logos, posters, social kits, and brand systems." />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <style>
+    :root{
+      --green:#1f5b39;
+      --accent:#28B463;
+      --deep:#0A4C75;
+      --gold:#D4AF37;
+      --white:#FFFFFF;
+      --muted:#E8EEF2;
+      --bg:#FBFCFC;
+      --max-width:1100px;
+      --radius:10px;
+      --gap:12px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:#0b0b0b; -webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 16px}
 
-    <!-- Centered CTAs under the badge -->
-    <div class="header-cta">
-      <a class="btn btn-primary" href="mailto:citracelservice@gmail.com" aria-label="Get a quote">Get a Quote</a>
-      <a class="btn" href="#pricing" style="background:transparent;border:2px solid rgba(255,255,255,0.18);color:#fff;font-weight:800">See Pricing</a>
-    </div>
-  </div>
-</header> <style>
     /* ===== Premium Gold Header (centered) ===== */
-header{
-  background: linear-gradient(180deg, #154529 0%, #1f5b39 100%); /* deeper green gradient */
-  color: var(--white);
-  padding: 20px 0 12px 0;
-  border-bottom: 2px solid rgba(0,0,0,0.08);
-}
+    header{
+      background: linear-gradient(180deg, #154529 0%, #1f5b39 100%);
+      color: var(--white);
+      padding: 20px 0 12px 0;
+      border-bottom: 2px solid rgba(0,0,0,0.08);
+    }
+    .header-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 6px 16px;
+    }
+    .logo-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 16px;
+      object-fit: contain;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(0,0,0,0.02));
+      border: 2px solid rgba(212,175,55,0.25);
+    }
+    .brand-text { text-align: center; margin-top: 4px; color: #fff; }
+    .brand-text h1 { font-size: 20px; margin: 0; letter-spacing: 0.6px; font-weight:800; }
+    .brand-text p { margin: 6px 0 0 0; font-size:13px; opacity:0.95; line-height:1.2; }
+    .header-cta { margin-top:12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    .header-cta .btn { padding:10px 14px; border-radius:10px; font-weight:800; }
 
-/* Centered brand badge */
-.header-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 6px 16px;
-}
+    /* Hero / Intro */
+    .hero{display:flex;gap:var(--gap);align-items:flex-start;padding:22px 0}
+    .card{background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:0 10px 24px rgba(12,12,12,0.06)}
+    .cta-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
 
-.logo-img {
-  width: 120px;            /* larger hero logo */
-  height: 120px;
-  border-radius: 16px;     /* subtle rounded corners */
-  object-fit: contain;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-  background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(0,0,0,0.02)); /* soft sheen */
-  border: 2px solid rgba(212,175,55,0.25);
-}
-
-/* Brand name & tagline centered below logo */
-.brand-text { text-align: center; margin-top: 4px; color: #fff; }
-.brand-text h1 { font-size: 20px; margin: 0; letter-spacing: 0.6px; font-weight:800; }
-.brand-text p { margin: 6px 0 0 0; font-size:13px; opacity:0.95; line-height:1.2; }
-
-/* Keep CTA buttons but smaller, centered below text */
-.header-cta { margin-top:12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-.header-cta .btn { padding:10px 14px; border-radius:10px; font-weight:800; }
-
-/* Adjust for tablets/phones */
-@media (max-width:720px){
-  .logo-img { width:104px; height:104px; border-radius:12px; }
-  .brand-text h1 { font-size:18px; }
-  header{ padding:16px 0 10px 0; }
-}
-@media (max-width:420px){
-  .logo-img { width:92px; height:92px; }
-  .brand-text h1 { font-size:16px; }
-}
-
-    /* Hero */
-    .hero{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;padding:22px 0}
-    .card{background:var(--white);border-radius:12px;padding:14px;box-shadow:0 10px 24px rgba(12,12,12,0.06)}
-
-    .cta-row{display:flex;gap:10px;margin-top:10px}
-    .btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700;text-decoration:none;display:inline-block}
-    .btn-primary{background:var(--deep);color:var(--white)}
-    .btn-outline{background:transparent;border:2px solid var(--deep);color:var(--deep)}
-
-    /* Layout blocks */
+    /* Services & Grid */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
     .service{background:var(--white);padding:12px;border-radius:10px;border:1px solid var(--muted)}
-    .service h3{margin:0 0 6px;color:var(--deep);font-size:16px}
-
     .portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
     .thumb{background:linear-gradient(180deg,var(--muted),#fff);border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:#546;font-weight:700}
-
     .pricing{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
     .price-card{background:var(--white);padding:12px;border-radius:10px;flex:1 1 220px;border:1px solid var(--muted)}
     .price{font-size:18px;color:var(--accent);font-weight:800}
-
-    form{display:grid;gap:8px} input,textarea{padding:10px;border-radius:8px;border:1px solid var(--muted);width:100%}
+    form{display:grid;gap:8px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid var(--muted);width:100%}
     textarea{min-height:120px}
-
-    footer{background:#07121a;color:#fff;padding:18px 12px;margin-top:20px}
-    .whatsapp{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#fff;width:54px;height:54px;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(40,180,99,0.22);text-decoration:none;font-size:20px}
-
-    @media (max-width:720px){
-      h1{font-size:18px}
-      .logo-img{width:52px;height:52px}
-      .hero{padding:14px 0}
+    footer{background:#07121a;color:#fff;padding:20px 0;margin-top:20px}
+    @media (max-width:900px){
+      .header-inner{padding:10px 0}
+      .logo-img{width:104px;height:104px}
+      .brand-text h1{font-size:17px}
+    }
+    @media (max-width:600px){
+      .logo-img{width:92px;height:92px;border-radius:12px}
+      .brand-text h1{font-size:16px}
+      .header-inner{padding:10px 6px}
+      .hero{padding:16px 0}
     }
   </style>
 </head>
 <body>
+  <!-- SINGLE header (only one) -->
   <header>
-    <div class="container">
-      <div class="brand-row" role="banner">
-        <!-- Using the uploaded file name EXACTLY: Logo.png -->
-        <img src="Logo.png" alt="Citracel logo" class="logo-img" onerror="this.style.display='none'">
-        <div>
-          <h1>Citracel Creative Services</h1>
-          <p class="lead">The Power of Clean Creativity — clean branding, posters & social systems for growing businesses.</p>
-        </div>
+    <div class="header-inner" role="banner">
+      <img src="Logo.png" alt="Citracel logo" class="logo-img" role="img" aria-label="Citracel logo">
+      <div class="brand-text">
+        <h1>Citracel Creative Services</h1>
+        <p>The Power of Clean Creativity — premium branding, posters & social systems for growing businesses.</p>
+      </div>
+      <div class="header-cta">
+        <a class="btn btn-primary" href="mailto:citracelservice@gmail.com" aria-label="Get a quote">Get a Quote</a>
+        <a class="btn" href="#pricing" style="background:transparent;border:2px solid rgba(255,255,255,0.18);color:#fff;font-weight:800">See Pricing</a>
       </div>
     </div>
   </header>
@@ -119,11 +109,11 @@ header{
           <p style="margin:0 0 12px 0">We craft premium, trust-building visuals — logos, posters, social kits, and full brand systems that help your business look professional and earn more customers.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="mailto:citracelservice@gmail.com" aria-label="Get a quote">Get a Quote</a>
-            <a class="btn btn-outline" href="#pricing" aria-label="See pricing">See Pricing</a>
+            <a class="btn" href="#pricing" style="border:2px solid var(--deep);background:transparent;color:var(--deep);font-weight:800" aria-label="See pricing">See Pricing</a>
           </div>
         </div>
 
-        <div style="display:flex;gap:10px;margin-top:12px">
+        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
           <div class="card" style="flex:1">
             <strong>Fast Turnaround</strong>
             <p style="margin:6px 0 0;font-size:13px">Designs delivered within 48 hours for most requests.</p>
@@ -161,7 +151,7 @@ header{
       <div class="pricing" role="list">
         <div class="price-card" role="listitem"><div style="font-size:14px;color:#333;font-weight:700">Poster Redesign</div><div class="price">R120</div><p style="margin:8px 0 0;font-size:13px">Quick upgrade for single promotional posters.</p></div>
         <div class="price-card" role="listitem"><div style="font-size:14px;color:#333;font-weight:700">Logo Refresh</div><div class="price">R250</div><p style="margin:8px 0 0;font-size:13px">Polish your mark with premium tweaks.</p></div>
-        <div class="price-card" role="listitem"><div style="font-size:14px;color:#333;font-weight:700">Brand Upgrade</div><div class="price">R450</div><p style="margin:8px 0 0;font-size:13px">Logo, poster, IG starter pack — ready files included.</p></div>
+        <div class="price-card" role="listitem"><div style="font-size:14px;color:#333;font-weight:700">Brand Upgrade</div><div class="price">R450</div><p style="margin:8px 0 0;font-size:13px">Logo, poster, IG starter pack — delivery-ready files.</p></div>
       </div>
     </section>
 
@@ -192,7 +182,7 @@ header{
   </main>
 
   <footer>
-    <div class="container" style="display:flex;flex-direction:column;gap:12px;align-items:center;padding:18px 12px;background:#07121a;color:#fff">
+    <div class="container" style="display:flex;flex-direction:column;gap:12px;align-items:center;padding:18px 0;background:#07121a;color:#fff">
       <div style="display:flex;gap:12px;align-items:center">
         <div style="width:44px;height:44px;border-radius:8px;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700">⚡🍃</div>
         <div style="text-align:left">
@@ -207,4 +197,4 @@ header{
 
   <a class="whatsapp" href="https://wa.me/27632358989" target="_blank" aria-label="WhatsApp">💬</a>
 </body>
-</html>
+      </html>
