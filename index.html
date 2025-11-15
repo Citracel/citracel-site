@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Citracel Creative Services — The Power of Clean Creativity</title>
-  <meta name="description" content="Citracel Creative Services — Clean, premium branding for small & growing businesses. Logos, posters, social kits and brand systems." />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <meta name="description" content="Citracel Creative Services — Clean, premium branding for small & growing businesses." />
   <style>
     :root{
-      --green:#28B463;
+      --green:#1f5b39;    /* slightly deeper green for header */
+      --accent:#28B463;
       --deep:#0A4C75;
       --gold:#D4AF37;
       --white:#FFFFFF;
@@ -17,132 +17,99 @@
       --max-width:1100px;
     }
     *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; margin:0; background:var(--bg); color:#0b0b0b;}
-    header{background:linear-gradient(90deg,var(--green),#2fbf6e); color:var(--white); padding:2.25rem 1rem;}
-    .container{max-width:var(--max-width); margin:0 auto; padding:0 1rem}
-    .brand-row{display:flex;align-items:center;gap:1rem}
-    .logo-badge{width:72px;height:72px;border-radius:12px;background:var(--white);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(11,11,11,0.08)}
-    .logo-mark{font-weight:700;color:var(--green);font-size:22px}
-    h1{font-size:28px;margin:0}
-    p.lead{margin:0.5rem 0 0;font-size:15px;opacity:0.95}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:#0b0b0b;}
+    header{background:linear-gradient(90deg,var(--green),#267046); color:var(--white); padding:18px 12px;}
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 12px;}
+    .brand-row{display:flex;align-items:center;gap:12px;}
+    .logo-img{width:64px;height:64px;border-radius:10px;object-fit:contain;background:transparent;display:block;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+    h1{font-size:20px;margin:0;line-height:1.05}
+    p.lead{margin:4px 0 0;font-size:13px;opacity:0.95}
 
     /* Hero */
-    .hero{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;padding:2.5rem 0}
-    .hero-left{flex:1 1 420px}
-    .hero-right{flex:1 1 420px;display:flex;align-items:center;justify-content:center}
-    .card{background:var(--white);border-radius:12px;padding:1.25rem;box-shadow:0 10px 30px rgba(12,12,12,0.06)}
+    .hero{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;padding:22px 0}
+    .card{background:var(--white);border-radius:12px;padding:14px;box-shadow:0 10px 24px rgba(12,12,12,0.06)}
 
-    .cta-row{display:flex;gap:0.75rem;margin-top:1rem}
-    .btn{padding:0.75rem 1rem;border-radius:10px;border:none;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block}
+    .cta-row{display:flex;gap:10px;margin-top:10px}
+    .btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700;text-decoration:none;display:inline-block}
     .btn-primary{background:var(--deep);color:var(--white)}
-    .btn-outline{background:transparent;border:2px solid var(--white);color:var(--white)}
+    .btn-outline{background:transparent;border:2px solid var(--deep);color:var(--deep)}
 
-    /* Services */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:0.75rem}
-    .service{background:var(--white);padding:1rem;border-radius:10px;border:1px solid var(--muted)}
-    .service h3{margin:0 0 0.5rem;color:var(--deep)}
+    /* Layout blocks */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+    .service{background:var(--white);padding:12px;border-radius:10px;border:1px solid var(--muted)}
+    .service h3{margin:0 0 6px;color:var(--deep);font-size:16px}
 
-    /* Portfolio */
-    .portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:0.75rem}
-    .thumb{background:linear-gradient(180deg,var(--muted),#fff);border-radius:8px;height:160px;display:flex;align-items:center;justify-content:center;color:#546; font-weight:600}
+    .portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+    .thumb{background:linear-gradient(180deg,var(--muted),#fff);border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:#546;font-weight:700}
 
-    /* Pricing */
-    .pricing{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.75rem}
-    .price-card{background:var(--white);padding:1rem;border-radius:10px;flex:1 1 220px;border:1px solid var(--muted)}
-    .price{font-size:20px;color:var(--green);font-weight:700}
+    .pricing{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .price-card{background:var(--white);padding:12px;border-radius:10px;flex:1 1 220px;border:1px solid var(--muted)}
+    .price{font-size:18px;color:var(--accent);font-weight:800}
 
-    /* Contact */
-    form{display:grid;gap:0.5rem}
-    input,textarea{padding:0.75rem;border-radius:8px;border:1px solid var(--muted);width:100%}
+    form{display:grid;gap:8px} input,textarea{padding:10px;border-radius:8px;border:1px solid var(--muted);width:100%}
     textarea{min-height:120px}
-    footer{background:#07121a;color:#fff;padding:2rem 1rem;margin-top:2rem}
-    .socials{display:flex;gap:0.5rem;align-items:center}
 
-    /* Floating WhatsApp */
-    .whatsapp{position:fixed;right:20px;bottom:20px;background:var(--green);color:#fff;width:56px;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(40,180,99,0.25);text-decoration:none;font-size:22px}
+    footer{background:#07121a;color:#fff;padding:18px 12px;margin-top:20px}
+    .whatsapp{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#fff;width:54px;height:54px;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(40,180,99,0.22);text-decoration:none;font-size:20px}
 
-    /* Footer links */
-    .footer-links a{color:#fff;text-decoration:none;margin:0 0.5rem}
-
-    /* Responsive */
-    @media (max-width:720px){h1{font-size:22px}.hero{padding:1.25rem 0}.logo-badge{width:56px;height:56px}.hero-right{order:2}.container{padding:0 0.75rem}}
+    @media (max-width:720px){
+      h1{font-size:18px}
+      .logo-img{width:52px;height:52px}
+      .hero{padding:14px 0}
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <div class="brand-row">
-        <div class="logo-badge" aria-hidden="true">
-          <div class="logo-mark">⚡🍃</div>
-        </div>
+      <div class="brand-row" role="banner">
+        <!-- Using the uploaded file name EXACTLY: Logo.png -->
+        <img src="Logo.png" alt="Citracel logo" class="logo-img" onerror="this.style.display='none'">
         <div>
           <h1>Citracel Creative Services</h1>
-          <p class="lead">The Power of Clean Creativity — clean branding, posters, and social systems for growing businesses.</p>
+          <p class="lead">The Power of Clean Creativity — clean branding, posters & social systems for growing businesses.</p>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="container" role="main">
-    <section class="hero" aria-label="Hero">
-      <div class="hero-left">
+  <main class="container" role="main" aria-live="polite">
+    <section class="hero" aria-label="Hero section">
+      <div style="flex:1">
         <div class="card" role="article">
-          <h2 style="color:var(--deep);margin:0 0 0.5rem">Clean branding that converts</h2>
-          <p style="margin:0 0 1rem;">We craft premium, trust-building visuals — logos, posters, social kits, and full brand systems that help your business look professional and earn more customers.</p>
+          <h2 style="color:var(--deep);margin:0 0 8px 0">Clean branding that converts</h2>
+          <p style="margin:0 0 12px 0">We craft premium, trust-building visuals — logos, posters, social kits, and full brand systems that help your business look professional and earn more customers.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:citracelservice@gmail.com" aria-label="Email Citracel">Get a Quote</a>
-            <a class="btn" href="#pricing" style="background:transparent;border:2px solid var(--deep);color:var(--deep);" aria-label="See pricing">See Pricing</a>
+            <a class="btn btn-primary" href="mailto:citracelservice@gmail.com" aria-label="Get a quote">Get a Quote</a>
+            <a class="btn btn-outline" href="#pricing" aria-label="See pricing">See Pricing</a>
           </div>
         </div>
 
-        <div style="display:flex;gap:0.75rem;margin-top:1rem">
+        <div style="display:flex;gap:10px;margin-top:12px">
           <div class="card" style="flex:1">
             <strong>Fast Turnaround</strong>
-            <p style="margin:0.5rem 0 0;font-size:14px;">Designs delivered within 48 hours for most requests.</p>
+            <p style="margin:6px 0 0;font-size:13px">Designs delivered within 48 hours for most requests.</p>
           </div>
           <div class="card" style="flex:1">
             <strong>Global Ready</strong>
-            <p style="margin:0.5rem 0 0;font-size:14px;">Designs and copy that work for international clients.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-right" aria-hidden="true">
-        <div class="card" style="width:100%;max-width:420px;text-align:center">
-          <div style="font-size:14px;color:var(--deep);font-weight:700">Featured Service</div>
-          <h3 style="margin:0.5rem 0;color:var(--green)">Brand Vibration Reset</h3>
-          <p style="margin:0.5rem 0">A focused package: logo + poster + IG starter pack — ready in 48 hours.</p>
-          <div style="margin-top:0.75rem">
-            <a class="btn btn-primary" href="#contact" aria-label="Start now">Start Now</a>
+            <p style="margin:6px 0 0;font-size:13px">Designs and copy that work for international clients.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="services-heading">
-      <h2 id="services-heading" style="color:var(--green);margin-bottom:0.5rem">Services</h2>
+      <h2 id="services-heading" style="color:var(--accent);margin-top:10px">Services</h2>
       <div class="grid" role="list">
-        <div class="service" role="listitem">
-          <h3>Logo Design</h3>
-          <p>Minimal, scalable, and meaningful marks that read across cultures.</p>
-        </div>
-        <div class="service" role="listitem">
-          <h3>Posters & Flyers</h3>
-          <p>High-conversion promotional layouts for print & digital.</p>
-        </div>
-        <div class="service" role="listitem">
-          <h3>Brand Identity</h3>
-          <p>Color systems, typography, usage guides, and voice.</p>
-        </div>
-        <div class="service" role="listitem">
-          <h3>Social Media Kits</h3>
-          <p>Reels, captions, highlights, and a 30-day content calendar.</p>
-        </div>
+        <div class="service" role="listitem"><h3>Logo Design</h3><p>Minimal, scalable, meaningful marks.</p></div>
+        <div class="service" role="listitem"><h3>Posters & Flyers</h3><p>High-conversion layouts for print & digital.</p></div>
+        <div class="service" role="listitem"><h3>Brand Identity</h3><p>Color systems, typography, usage guides.</p></div>
+        <div class="service" role="listitem"><h3>Social Media Kits</h3><p>Reels, captions, and 30-day content calendars.</p></div>
       </div>
     </section>
 
-    <section aria-labelledby="portfolio-heading" style="margin-top:1.5rem">
-      <h2 id="portfolio-heading" style="color:var(--green);margin-bottom:0.5rem">Portfolio</h2>
+    <section style="margin-top:12px" aria-labelledby="portfolio-heading">
+      <h2 id="portfolio-heading" style="color:var(--accent)">Portfolio</h2>
       <div class="portfolio" role="list">
         <div class="thumb" role="listitem">Before → After Poster</div>
         <div class="thumb" role="listitem">Gold Logo Mock</div>
@@ -151,50 +118,33 @@
       </div>
     </section>
 
-    <section id="pricing" aria-labelledby="pricing-heading" style="margin-top:1.5rem">
-      <h2 id="pricing-heading" style="color:var(--green);margin-bottom:0.5rem">Pricing (Starter)</h2>
+    <section id="pricing" aria-labelledby="pricing-heading" style="margin-top:12px">
+      <h2 id="pricing-heading" style="color:var(--accent)">Pricing (Starter)</h2>
       <div class="pricing" role="list">
-        <div class="price-card" role="listitem">
-          <div style="font-size:14px;color:#333;font-weight:700">Poster Redesign</div>
-          <div class="price">R120</div>
-          <p style="margin:0.5rem 0 0;font-size:14px">Quick upgrade for single promotional posters.</p>
-        </div>
-        <div class="price-card" role="listitem">
-          <div style="font-size:14px;color:#333;font-weight:700">Logo Refresh</div>
-          <div class="price">R250</div>
-          <p style="margin:0.5rem 0 0;font-size:14px">Polish your mark with premium tweaks and color system.</p>
-        </div>
-        <div class="price-card" role="listitem">
-          <div style="font-size:14px;color:#333;font-weight:700">Citracel Brand Upgrade</div>
-          <div class="price">R450</div>
-          <p style="margin:0.5rem 0 0;font-size:14px">Logo, poster, IG starter pack, and delivery-ready files.</p>
-        </div>
+        <div class="price-card" role="listitem"><div style="font-size:14px;color:#333;font-weight:700">Poster Redesign</div><div class="price">R120</div><p style="margin:8px 0 0;font-size:13px">Quick upgrade for single promotional posters.</p></div>
+        <div class="price-card" role="listitem"><div style="font-size:14px;color:#333;font-weight:700">Logo Refresh</div><div class="price">R250</div><p style="margin:8px 0 0;font-size:13px">Polish your mark with premium tweaks.</p></div>
+        <div class="price-card" role="listitem"><div style="font-size:14px;color:#333;font-weight:700">Brand Upgrade</div><div class="price">R450</div><p style="margin:8px 0 0;font-size:13px">Logo, poster, IG starter pack — ready files included.</p></div>
       </div>
     </section>
 
-    <section id="contact" aria-labelledby="contact-heading" style="margin-top:1.5rem;margin-bottom:1rem">
-      <h2 id="contact-heading" style="color:var(--green);margin-bottom:0.5rem">Contact & Quick Brief</h2>
-      <div style="display:grid;grid-template-columns:1fr 320px;gap:1rem">
-        <div class="card" style="padding:1rem">
+    <section id="contact" aria-labelledby="contact-heading" style="margin-top:12px;margin-bottom:18px">
+      <h2 id="contact-heading" style="color:var(--accent)">Contact & Quick Brief</h2>
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:12px">
+        <div class="card" style="padding:12px">
           <form action="mailto:citracelservice@gmail.com" method="post" enctype="text/plain">
-            <label for="name" style="display:none">Name</label>
-            <input id="name" name="name" placeholder="Your name" required />
-            <label for="email" style="display:none">Email</label>
-            <input id="email" name="email" placeholder="Email" required />
-            <label for="phone" style="display:none">WhatsApp</label>
-            <input id="phone" name="phone" placeholder="WhatsApp number" />
-            <label for="project" style="display:none">Project</label>
-            <input id="project" name="project" placeholder="Project (logo/poster/brand)" required />
-            <label for="details" style="display:none">Details</label>
-            <textarea id="details" name="details" placeholder="Brief - what you want" required></textarea>
-            <div style="display:flex;gap:0.5rem;margin-top:0.5rem">
+            <input name="name" placeholder="Your name" required />
+            <input name="email" placeholder="Email" required />
+            <input name="phone" placeholder="WhatsApp number" />
+            <input name="project" placeholder="Project (logo/poster/brand)" required />
+            <textarea name="details" placeholder="Brief - what you want" required></textarea>
+            <div style="display:flex;gap:8px;margin-top:10px">
               <button type="submit" class="btn btn-primary">Send Brief</button>
               <a class="btn" href="https://wa.me/27632358989" target="_blank" style="background:var(--gold);color:#081">WhatsApp</a>
             </div>
           </form>
         </div>
 
-        <div style="display:flex;flex-direction:column;gap:0.75rem">
+        <div style="display:flex;flex-direction:column;gap:10px">
           <div class="card"><strong>WhatsApp:</strong> 063 235 8989</div>
           <div class="card"><strong>Email:</strong> citracelservice@gmail.com</div>
           <div class="card"><strong>Address:</strong> 369 Selby Msimang Road, Pietermaritzburg, 3264</div>
@@ -204,22 +154,16 @@
   </main>
 
   <footer>
-    <div class="container" style="display:flex;flex-direction:column;gap:1rem;align-items:center">
-      <div style="display:flex;gap:1rem;align-items:center">
-        <div style="width:44px;height:44px;border-radius:8px;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700">⚡🍃</div>
+    <div class="container" style="display:flex;flex-direction:column;gap:12px;align-items:center;padding:18px 12px;background:#07121a;color:#fff">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div style="width:44px;height:44px;border-radius:8px;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700">⚡🍃</div>
         <div style="text-align:left">
           <div style="font-weight:700">Citracel Creative Services</div>
-          <div style="opacity:0.8;">The Power of Clean Creativity</div>
+          <div style="opacity:0.85">The Power of Clean Creativity</div>
         </div>
       </div>
 
-      <div class="footer-links" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
-        <a href="#" aria-label="Privacy">Privacy</a>
-        <a href="#" aria-label="Terms">Terms</a>
-        <a href="#" aria-label="Contact">Contact</a>
-      </div>
-
-      <div style="opacity:0.8;font-size:13px">© 2025 Citracel Creative Services — All rights reserved</div>
+      <div style="opacity:0.85;font-size:13px">© 2025 Citracel Creative Services — All rights reserved</div>
     </div>
   </footer>
 
