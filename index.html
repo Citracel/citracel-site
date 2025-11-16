@@ -350,85 +350,155 @@ header.is-sticky .header-inner,
 header.is-sticky .brand-text {
   padding-top: 8px !important;
   padding-bottom: 8px !important;
-    }
+ /* ===== Premium sticky header: blur + shrink + shadow =====
+   Paste this immediately BEFORE the closing </style> tag
+*/
+header {
+  transition: box-shadow .22s ease, transform .22s ease, padding .22s ease, background-color .22s ease;
+  will-change: box-shadow, transform, padding, background-color;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* class added when header becomes sticky */
+header.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(10,40,30,0.95), rgba(10,40,30,0.92));
+  box-shadow: 0 10px 30px rgba(3,12,8,0.16);
+  -webkit-backdrop-filter: blur(6px) saturate(1.05);
+  backdrop-filter: blur(6px) saturate(1.05);
+}
+
+/* smooth shrink of inner header content */
+header.is-sticky .header-inner {
+  transform: translateZ(0) scale(0.98);
+}
+
+/* reduce logo size and spacing when sticky */
+header.is-sticky .logo-img,
+header.is-sticky .hero-logo {
+  width: calc( var(--logo-size, 110px) * 0.78 ) !important;
+  height: auto !important;
+  margin-bottom: 6px !important;
+}
+
+/* reduce brand text padding for compact header */
+header.is-sticky .brand-text,
+header.is-sticky .header-inner {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* optional: slightly reduce hero padding so contents don't jump */
+header.is-sticky + .container,
+header.is-sticky + main {
+  padding-top: calc(var(--header-height, 120px) * 0.92);
+}
+
+/* Accessibility: give focus-visible outline for header links when sticky */
+header.is-sticky a:focus {
+  outline: 3px solid rgba(255,255,255,0.12);
+  outline-offset: 4px;
+}
+    /* ===== Premium sticky header (stronger blur, deeper shadow, smooth shrink) ===== */
+header {
+  transition: box-shadow .28s cubic-bezier(.2,.9,.2,1),
+              transform .28s cubic-bezier(.2,.9,.2,1),
+              padding .28s cubic-bezier(.2,.9,.2,1);
+  will-change: box-shadow, transform;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* class applied when header becomes sticky */
+header.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  /* subtle darker background so white text still reads */
+  background: linear-gradient(180deg, rgba(5,41,22,0.98), rgba(5,41,22,0.95));
+  /* stronger glass blur for premium look */
+  -webkit-backdrop-filter: blur(8px) saturate(1.05);
+  backdrop-filter: blur(8px) saturate(1.05);
+  /* deeper shadow */
+  box-shadow: 0 12px 34px rgba(3,12,8,0.28);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  transform: translateZ(0);
+}
+
+/* shrink inner header content (logo + text) */
+header.is-sticky .header-inner {
+  transform: translateZ(0) scale(.92);
+  transition: transform .28s cubic-bezier(.2,.9,.2,1);
+}
+
+/* reduce padding a little to save vertical space */
+header.is-sticky .header-inner,
+header.is-sticky .brand-text {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* Accessibility: visible focus when sticky */
+header.is-sticky a:focus {
+  outline: 3px solid rgba(255,255,255,0.12);
+  outline-offset: 4px;
+}
   </style>
   </head>
   <body>
   <script>
-    /* Sticky header: add .is-sticky on scroll */
+    <script>
+/* Premium sticky header: add .is-sticky when scroll passes threshold */
 (function(){
   const header = document.querySelector('header');
   if(!header) return;
 
   const STICKY_CLASS = 'is-sticky';
-  const threshold = 80;
+  const threshold = 60; // smaller threshold so effect shows earlier
+  let lastScrollY = window.scrollY;
   let ticking = false;
 
-  function setBodyPaddingForHeader() {
-    if (header.classList.contains(STICKY_CLASS)) {
-      document.body.style.paddingTop = header.offsetHeight + 'px';
+  function updateSticky() {
+    const y = window.scrollY || window.pageYOffset;
+    // add class when scrolled beyond threshold
+    if(y > threshold) {
+      if(!header.classList.contains(STICKY_CLASS)) {
+        header.classList.add(STICKY_CLASS);
+        document.body.style.paddingTop = `${header.offsetHeight}px`; // prevent jump
+      }
     } else {
-      document.body.style.paddingTop = '';
+      if(header.classList.contains(STICKY_CLASS)) {
+        header.classList.remove(STICKY_CLASS);
+        document.body.style.paddingTop = '';
+      }
     }
+    ticking = false;
   }
 
   function onScroll() {
-    const y = window.scrollY || window.pageYOffset;
-    if (y > threshold) {
-      if (!header.classList.contains(STICKY_CLASS)) {
-        header.classList.add(STICKY_CLASS);
-        setBodyPaddingForHeader();
-      }
-    } else {
-      if (header.classList.contains(STICKY_CLASS)) {
-        header.classList.remove(STICKY_CLASS);
-        setBodyPaddingForHeader();
-      }
-    }
-  }
-
-  window.addEventListener('scroll', function(){
-    if (!ticking) {
-      window.requestAnimationFrame(function(){
-        onScroll();
-        ticking = false;
-      });
+    if(!ticking) {
+      window.requestAnimationFrame(updateSticky);
       ticking = true;
     }
-  });
+    lastScrollY = window.scrollY;
+  }
 
-  onScroll();
-
-  window.addEventListener('resize', function(){
-    if (header.classList.contains(STICKY_CLASS)) {
-      document.body.style.paddingTop = header.offsetHeight + 'px';
+  // Run once to initialize (if page loads scrolled)
+  updateSticky();
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', () => {
+    if(header.classList.contains(STICKY_CLASS)) {
+      document.body.style.paddingTop = `${header.offsetHeight}px`;
     }
   });
 })();
-  // small IntersectionObserver to add .visible when elements enter viewport
-  (function(){
-    const opts = { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.08 };
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          // if you want it to animate once only:
-          io.unobserve(e.target);
-        }
-      });
-    }, opts);
-
-    // select elements to reveal
-    const reveals = document.querySelectorAll('.fade-in, .fade-in-stagger, .card');
-    reveals.forEach((el, i)=>{
-      // for stagger lists, set custom property so children get small delays
-      if(el.classList.contains('fade-in-stagger')){
-        [...el.children].forEach((child, idx)=> child.style.setProperty('--i', idx));
-      }
-      // small delay before observing for nicer timing on page load
-      setTimeout(()=> io.observe(el), 80 + (i * 40));
-    });
-  })();
     </script>
 <body>
   <!-- SINGLE header (only one) -->
