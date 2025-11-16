@@ -254,12 +254,48 @@ display:inline-block;
   text-decoration:none;
 display:inline-block;
 175 }
+    /* ---- Contact spacing, form columns & portfolio polish ---- */
+
+/* give the contact section more space above the footer */
+#contact {
+  margin-bottom: 90px;
+}
+
+/* Desktop: contact form two-column layout */
+@media (min-width: 900px) {
+  #contact .container {
+    display: grid;
+    grid-template-columns: 1fr 360px; /* form column + contact info column */
+    gap: 28px;
+    align-items: start;
+  }
+  #contact .card { padding: 18px; } /* ensure padding for cards */
+}
+
+/* small polish for portfolio cards */
+.portfolio .thumb {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  will-change: transform;
+}
+.portfolio .thumb:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(3,12,8,0.12);
+}
+
+/* subtle card focus for accessibility */
+.card:focus-within, .thumb:focus {
+  outline: 3px solid rgba(40,180,99,0.12);
+  outline-offset: 6px;
+                          }
   </style>
+  #contact {
+  margin-bottom: 90px;
+}
 </head>
   <!-- WhatsApp floating button -->
-<a class="whatsapp-float" href="https://wa.me/27632358989" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-  <!-- Use your icon file or emoji fallback -->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+<a class="btn btn-primary" <!-- Replace the broken WhatsApp link with this -->
+<a class="btn btn-primary" href="https://wa.me/27632358989?text=Hi%20Citracel%2C%20I%27d%20like%20a%20quote%20for%20%5Bproject%5D.%20My%20name%20is%20%5BYOUR%20NAME%5D." target="_blank" rel="noopener">
+  WhatsApp
 </a>
   <script>
   // small IntersectionObserver to add .visible when elements enter viewport
@@ -375,7 +411,7 @@ display:inline-block;
         </div>
 
         <div style="display:flex;flex-direction:column;gap:10px">
-          <div class="card"><strong>WhatsApp:</strong> 063 235 8989</div>
+          <div class="card"><strong>WhatsApp:</strong> 0632358989</div>
           <div class="card"><strong>Email:</strong> citracelservice@gmail.com</div>
           <div class="card"><strong>Address:</strong> 369 Selby Msimang Road, Pietermaritzburg, 3264</div>
         </div>
