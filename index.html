@@ -82,7 +82,62 @@
       .brand-text h1{font-size:16px}
       .header-inner{padding:10px 6px}
       .hero{padding:16px 0}
-    }
+    }/* === Hero polish: center, scale, subtle vignette === */
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 18px;
+  background: linear-gradient(180deg, rgba(11,83,46,0.98) 0%, rgba(8,64,36,0.96) 65%);
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* slightly larger logo in header */
+.hero-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(3,12,8,0.45);
+  margin-bottom: 12px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Title + subtitle spacing */
+.hero-title { font-size: 32px; line-height:1.05; margin:8px 0 6px; color:var(--white); font-weight:800; }
+.hero-subtitle { font-size:16px; opacity:0.95; margin:0 auto 18px; max-width:720px; color:var(--muted); }
+
+/* subtle decorative vignette behind logo (non-invasive) */
+.hero-header::after{
+  content: "";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: radial-gradient( circle at 50% 18%, rgba(255,255,255,0.02), rgba(0,0,0,0.28) 55% );
+}157 /* CTA buttons: filled gold + outline */
+158 .btn-primary {
+159   background:linear-gradient(180deg,#D4AF37 0%,#C99F2E 100%);
+160   color:#07121a;
+161   border:0;
+162   padding:12px 18px;
+163   border-radius:10px;
+164   font-weight:700;
+165   box-shadow:0 8px 30px rgba(212,175,55,0.18);
+166 }
+167 
+168 .btn-outline {
+169   background:transparent;
+170   color:var(--white);
+171   border:2px solid rgba(255,255,255,0.12);
+172   padding:10px 16px;
+173   border-radius:10px;
+174   font-weight:700;
+175 }
   </style>
 </head>
 <body>
