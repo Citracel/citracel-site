@@ -314,10 +314,97 @@ display:inline-block;
   font-weight: 700;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
+    /* ---- Sticky header (shadow) ----
+   Paste this immediately BEFORE the closing </style> tag
+*/
+header {
+  transition: box-shadow .24s ease, transform .24s ease, background-color .24s ease;
+  will-change: box-shadow, transform;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* class that will be added when header becomes sticky */
+header.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  /* subtle floating shadow */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+  /* slight backdrop and stronger background so content behind doesn't show through */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  /* slightly darker background — adjust to taste or use your variable */
+  background: linear-gradient(180deg, rgba(6,86,51,0.98), rgba(6,86,51,0.95));
+}
+
+/* smooth shrink of inner header content (optional tweak) */
+header.is-sticky .header-inner {
+  transform: translateZ(0); /* prevents odd subpixel jitter */
+}
+
+/* optional: reduce hero/header padding when sticky (keeps header compact) */
+header.is-sticky .header-inner,
+header.is-sticky .brand-text {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+    }
   </style>
   </head>
   <body>
   <script>
+    /* Sticky header: add .is-sticky on scroll */
+(function(){
+  const header = document.querySelector('header');
+  if(!header) return;
+
+  const STICKY_CLASS = 'is-sticky';
+  const threshold = 80;
+  let ticking = false;
+
+  function setBodyPaddingForHeader() {
+    if (header.classList.contains(STICKY_CLASS)) {
+      document.body.style.paddingTop = header.offsetHeight + 'px';
+    } else {
+      document.body.style.paddingTop = '';
+    }
+  }
+
+  function onScroll() {
+    const y = window.scrollY || window.pageYOffset;
+    if (y > threshold) {
+      if (!header.classList.contains(STICKY_CLASS)) {
+        header.classList.add(STICKY_CLASS);
+        setBodyPaddingForHeader();
+      }
+    } else {
+      if (header.classList.contains(STICKY_CLASS)) {
+        header.classList.remove(STICKY_CLASS);
+        setBodyPaddingForHeader();
+      }
+    }
+  }
+
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      window.requestAnimationFrame(function(){
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  onScroll();
+
+  window.addEventListener('resize', function(){
+    if (header.classList.contains(STICKY_CLASS)) {
+      document.body.style.paddingTop = header.offsetHeight + 'px';
+    }
+  });
+})();
   // small IntersectionObserver to add .visible when elements enter viewport
   (function(){
     const opts = { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.08 };
