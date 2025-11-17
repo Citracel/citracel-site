@@ -1,4 +1,4 @@
-    <!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,7 +7,7 @@
   <meta name="description" content="Citracel — premium branding, posters & social systems for growing businesses. Work with the #1 creative specialist." />
   <meta property="og:title" content="Citracel Creative Services" />
   <meta property="og:description" content="The Power of Clean Creativity — premium logos, posters, brand systems, and social design." />
-  <meta property="og:image" content="https://citracel.github.io/citracel-site/hero-mockup.png" />
+  <meta property="og:image" content="https://citracel.github.io/citracel-site/hero-mockup-1200.jpg" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="favicon.png" type="image/png" />
 
@@ -61,7 +61,11 @@
     /* hero image controlled */
     .hero-visual{margin-top:20px;border-radius:12px;overflow:hidden}
     .hero-visual img{
-      width:100%;height:320px;max-height:420px;object-fit:cover;display:block;border-radius:10px;
+      width:100%;
+      height:320px;
+      max-height:420px;
+      object-fit:cover;
+      display:block;border-radius:10px;
       box-shadow:0 16px 40px rgba(0,0,0,0.35);
     }
 
@@ -95,6 +99,9 @@
       .instagram-card .thumb{height:160px}
       .header-inner{padding:12px}
     }
+
+    /* image max-width safeguard to avoid overflow */
+    img{max-width:100%;height:auto}
   </style>
 </head>
 <body>
@@ -105,7 +112,7 @@
       <div class="header-inner">
         <div class="brand" aria-hidden="false">
           <a class="logo" href="./" aria-label="Citracel home">
-            <img src="logo.png" alt="Citracel logo" width="64" height="64" loading="eager">
+            <img src="logo.png" alt="Citracel logo" width="64" height="64" loading="eager" onerror="this.onerror=null;this.src='favicon.png'">
           </a>
           <div>
             <h1>Citracel Creative Services</h1>
@@ -134,14 +141,20 @@
           </div>
 
           <div class="hero-visual" aria-hidden="false">
-            <!-- hero image (controlled height & lazy) -->
-            <img
-              src="hero-mockup.png"
-              alt="Citracel hero mockup — gold & green"
-              loading="lazy"
-              width="1600" height="900"
-              onerror="this.onerror=null;this.src='logo.png';this.alt='Citracel logo (fallback)';"
-            >
+            <!-- hero image with srcset for responsive loading -->
+            <picture>
+              <!-- preferred WebP if you upload it -->
+              <source srcset="hero-mockup-1600.webp 1600w, hero-mockup-1200.webp 1200w, hero-mockup-800.webp 800w" type="image/webp">
+              <img
+                src="hero-mockup-1200.jpg"
+                srcset="hero-mockup-800.jpg 800w, hero-mockup-1200.jpg 1200w, hero-mockup-1600.jpg 1600w"
+                sizes="(max-width:560px) 100vw, (max-width:920px) 90vw, 1200px"
+                alt="Citracel hero mockup — gold & green"
+                loading="lazy"
+                width="1600" height="900"
+                onerror="this.onerror=null;this.src='logo.png';this.alt='Citracel logo (fallback)';"
+              >
+            </picture>
           </div>
         </div>
       </section>
@@ -160,36 +173,46 @@
       <div class="grid" aria-label="Portfolio thumbnails">
 
         <article class="card" role="article">
-          <div class="thumb"><img src="poster-mock.png" alt="Poster mockup — Citracel" loading="lazy" width="1200" height="800" onerror="this.onerror=null;this.src='logo.png';"></div>
+          <div class="thumb"><picture>
+            <source srcset="poster-mock-1200.webp 1200w, poster-mock-800.webp 800w" type="image/webp">
+            <img src="poster-mock-1200.jpg" srcset="poster-mock-800.jpg 800w, poster-mock-1200.jpg 1200w" sizes="(max-width:560px) 100vw, 420px" alt="Poster mockup — Citracel" loading="lazy" width="1200" height="800" onerror="this.onerror=null;this.src='logo.png';">
+          </picture></div>
           <h4>Poster mockup</h4>
           <p class="muted">Large-format promotional designs.</p>
         </article>
 
         <article class="card" role="article">
-          <div class="thumb"><img src="business-card.png" alt="Business card — Citracel" loading="lazy" width="1200" height="800" onerror="this.onerror=null;this.src='logo.png';"></div>
+          <div class="thumb"><picture>
+            <source srcset="business-card-1200.webp 1200w, business-card-800.webp 800w" type="image/webp">
+            <img src="business-card-1200.jpg" srcset="business-card-800.jpg 800w, business-card-1200.jpg 1200w" sizes="(max-width:560px) 100vw, 420px" alt="Business card — Citracel" loading="lazy" width="1200" height="800" onerror="this.onerror=null;this.src='logo.png';">
+          </picture></div>
           <h4>Business card</h4>
           <p class="muted">Premium print-ready card mockups.</p>
         </article>
 
         <article class="card" role="article">
-          <div class="thumb"><img src="brand-board.png" alt="Brand board — Citracel" loading="lazy" width="1200" height="1600" onerror="this.onerror=null;this.src='logo.png';"></div>
+          <div class="thumb"><picture>
+            <source srcset="brand-board-1600.webp 1600w, brand-board-1200.webp 1200w" type="image/webp">
+            <img src="brand-board-1200.jpg" srcset="brand-board-1200.jpg 1200w, brand-board-1600.jpg 1600w" sizes="(max-width:560px) 100vw, 420px" alt="Brand board — Citracel" loading="lazy" width="1200" height="1600" onerror="this.onerror=null;this.src='logo.png';">
+          </picture></div>
           <h4>Brand board</h4>
           <p class="muted">Color, typography, iconography and usage examples.</p>
         </article>
 
         <!-- Instagram card: robust responsive markup + graceful fallback -->
         <article class="card instagram-card" role="article" aria-label="Instagram grid">
-          <div class="thumb" aria-hidden="false">
+          <div class="thumb" aria-hidden="false"><picture>
+            <source srcset="instagram-grid-1600.webp 1600w, instagram-grid-1200.webp 1200w, instagram-grid-600.webp 600w" type="image/webp">
             <img
-              src="instagram-grid.png"
-              srcset="instagram-grid.png 1x"
-              sizes="(max-width:560px) 320px, (max-width:920px) 420px, 600px"
+              src="instagram-grid-1200.jpg"
+              srcset="instagram-grid-600.jpg 600w, instagram-grid-1200.jpg 1200w, instagram-grid-1600.jpg 1600w"
+              sizes="(max-width:560px) 90vw, (max-width:920px) 420px, 600px"
               alt="Instagram grid — Citracel"
               loading="lazy"
               width="1200" height="1200"
               onerror="this.style.display='none'; if(!this.dataset.fallback){ this.dataset.fallback='1'; this.parentNode.insertAdjacentHTML('beforeend','<div class=&quot;fallback-note&quot;>Instagram grid — image not available</div>'); }"
             >
-          </div>
+          </picture></div>
           <h4>Instagram grid</h4>
           <p class="muted">Aesthetic grid layouts tailored to storytelling and conversion.</p>
         </article>
@@ -200,19 +223,19 @@
       <h3 class="section-title" style="margin-top:26px">Systems & brand sheets</h3>
       <div class="grid">
         <div class="card">
-          <div class="thumb"><img src="logo.png" alt="Citracel logo" loading="lazy" width="800" height="800" onerror="this.onerror=null;this.src='favicon.png';"></div>
+          <div class="thumb"><img src="logo.png" alt="Citracel logo (mark)" loading="lazy" width="800" height="800" onerror="this.onerror=null;this.src='favicon.png';"></div>
           <h4>Logo & mark</h4>
           <p class="muted">Primary mark in gold & green; favicon and variations included.</p>
         </div>
 
         <div class="card">
-          <div class="thumb"><img src="hero-mockup.png" alt="Website hero pack" loading="lazy" width="1200" height="900" onerror="this.onerror=null;this.src='logo.png';"></div>
+          <div class="thumb"><img src="hero-mockup-1200.jpg" alt="Website hero pack" loading="lazy" width="1200" height="900" onerror="this.onerror=null;this.src='logo.png';"></div>
           <h4>Website hero pack</h4>
           <p class="muted">High-resolution hero images designed for impact and speed.</p>
         </div>
 
         <div class="card">
-          <div class="thumb"><img src="poster-mock.png" alt="Poster creative" loading="lazy" width="1200" height="800" onerror="this.onerror=null;this.src='logo.png';"></div>
+          <div class="thumb"><img src="poster-mock-1200.jpg" alt="Poster creative" loading="lazy" width="1200" height="800" onerror="this.onerror=null;this.src='logo.png';"></div>
           <h4>Print-ready posters</h4>
           <p class="muted">Production files for local and offset printing.</p>
         </div>
@@ -226,7 +249,7 @@
           <input name="name" placeholder="Your name" required>
           <input name="email" placeholder="Email" type="email" required>
           <input name="phone" placeholder="WhatsApp number">
-          <input name="project" placeholder="Project (logo/poster/brand)" required>
+          <input name="project" placeholder="Project (logo / poster / brand)" required>
           <textarea name="brief" placeholder="Brief — what you want" rows="6" required></textarea>
           <div style="display:flex;gap:10px;align-items:center">
             <button type="submit" class="btn" style="background:var(--gold);color:#07121a">Send Brief</button>
@@ -268,4 +291,4 @@
     })();
   </script>
 </body>
-  </html>        
+    </html>     
