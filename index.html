@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -15,11 +15,12 @@
       --muted:rgba(255,255,255,0.85);
       --card-bg:rgba(255,255,255,0.02);
       --max-width:1100px;
+      --radius:12px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:Inter,system-ui;
+      font-family:Inter,system-ui,-apple-systemSegoe UI,Roboto,Arial;
       background:linear-gradient(180deg,#062915,#08301e 60%);
       color:var(--muted);
     }
@@ -32,15 +33,17 @@
       padding:14px 0;
       border-bottom:1px solid rgba(255,255,255,0.05);
     }
-    .header-inner{display:flex;align-items:center;gap:14px;padding:0 18px}
-    .logo{width:68px;height:68px;border-radius:12px;overflow:hidden}
-    .logo img{width:100%;height:100%;object-fit:cover}
+    .header-inner{display:flex;align-items:center;gap:14px;padding:0 18px;max-width:var(--max-width);margin:0 auto}
+    .logo{width:68px;height:68px;border-radius:12px;overflow:hidden;flex:0 0 68px}
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
     .brand h1{margin:0;color:var(--white);font-size:16px;font-weight:800}
     .brand p{margin:0;font-size:12px;color:var(--muted)}
-    .nav-actions{margin-left:auto;display:flex;gap:10px}
+    .nav-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+    .contact-inline{display:flex;flex-direction:column;align-items:flex-end;font-size:13px;gap:6px}
+    .contact-inline a{color:var(--gold);font-weight:800;text-decoration:none}
     .btn{padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:800}
     .btn-primary{background:var(--gold);color:#07121a}
-    .btn-ghost{border:2px solid rgba(255,255,255,0.1);color:var(--white)}
+    .btn-ghost{border:2px solid rgba(255,255,255,0.1);color:var(--white);background:transparent}
 
     main{padding:28px 18px}
 
@@ -62,34 +65,30 @@
       margin-top:18px;
     }
 
-    .section-title{
-      color:var(--gold);
-      margin:26px 0 10px;
-      font-weight:900;
-    }
-
+    .section-title{color:var(--gold);margin:26px 0 10px;font-weight:900}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .card{
-      background:var(--card-bg);
-      border-radius:14px;
-      padding:14px;
-      box-shadow:0 10px 26px rgba(0,0,0,0.25);
-    }
-    .thumb{
-      width:100%;height:190px;overflow:hidden;border-radius:10px;
-      background:#07121a;
-      display:flex;align-items:center;justify-content:center;
-    }
-    .thumb img{
-      width:100%;height:100%;object-fit:cover;
+    .card{background:var(--card-bg);border-radius:14px;padding:14px;box-shadow:0 10px 26px rgba(0,0,0,0.25)}
+    .thumb{width:100%;height:190px;overflow:hidden;border-radius:10px;background:#07121a;display:flex;align-items:center;justify-content:center}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+
+    /* Contact area */
+    #contact-grid{display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:18px}
+    .contact-form input,.contact-form textarea{width:100%;padding:12px;border-radius:10px;border:0;background:rgba(255,255,255,0.03);color:var(--muted);margin-bottom:8px}
+    .contact-form button{background:var(--gold);border:0;padding:10px 14px;border-radius:10px;font-weight:800}
+    aside.profile{padding:14px;border-radius:12px;background:rgba(0,0,0,0.06);color:var(--muted)}
+
+    footer{padding:22px;text-align:center;background:rgba(0,0,0,0.08);color:rgba(255,255,255,0.85);margin-top:36px;border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* floating CTA */
+    .floating-cta{
+      position:fixed;right:16px;bottom:18px;border-radius:14px;padding:10px 14px;
+      background:linear-gradient(180deg,var(--gold),#c59b1f);color:#07121a;font-weight:800;box-shadow:0 16px 40px rgba(0,0,0,0.35);z-index:9999;
+      display:flex;gap:8px;align-items:center;text-decoration:none;
     }
 
-    footer{
-      padding:22px;
-      text-align:center;
-      background:rgba(0,0,0,0.08);
-      color:rgba(255,255,255,0.85);
-      margin-top:36px;
+    @media (max-width:920px){
+      #contact-grid{grid-template-columns:1fr}
+      .contact-inline{align-items:flex-start}
     }
   </style>
 </head>
@@ -97,30 +96,45 @@
 <body>
 <header>
   <div class="header-inner">
-    <div class="brand">
-      <a href="#" class="logo"><img src="logo.png"></a>
+    <a href="#" class="logo" aria-label="Citracel home"><img src="logo.png" alt="Citracel logo"></a>
+
+    <div class="brand" style="gap:10px">
       <div>
         <h1>Citracel Creative Services</h1>
         <p>The Power of Clean Creativity — Mthokozisi Sthole</p>
       </div>
     </div>
-    <div class="nav-actions">
-      <a class="btn btn-primary" href="mailto:citracelservice@gmail.com">Get a quote</a>
+
+    <div class="nav-actions" role="navigation" aria-label="Primary actions">
+      <div class="contact-inline" aria-hidden="false" style="margin-right:6px;">
+        <!-- clickable phone + WhatsApp -->
+        <a href="tel:+27632358989" aria-label="Call Citracel phone">(063) 235-8989</a>
+        <a href="https://wa.me/27632358989" target="_blank" rel="noopener" aria-label="Message on WhatsApp">WhatsApp</a>
+      </div>
+
+      <a class="btn btn-primary" href="mailto:citracelservice@gmail.com" aria-label="Email Citracel">Get a quote</a>
       <a class="btn btn-ghost" href="#portfolio">Portfolio</a>
     </div>
   </div>
 </header>
 
-<main class="container">
-
+<main class="container" role="main">
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" aria-labelledby="hero-title">
     <div class="hero-card">
-      <h2 class="hero-title">We design brand systems that attract customers worldwide</h2>
-      <p class="hero-sub">Premium logos, posters, hero packs and social systems built for clarity and trust.</p>
+      <div>
+        <small style="font-weight:700;color:var(--muted)">World-class creative studio</small>
+        <h2 id="hero-title" class="hero-title">We design brand systems that attract customers worldwide</h2>
+        <p class="hero-sub">Citracel — premium logos, posters, hero packs and social systems that help businesses scale with clarity and trust.</p>
 
-      <div class="hero-visual">
-        <img src="hero-mockup.png" alt="Hero mockup">
+        <div style="margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-primary" href="mailto:citracelservice@gmail.com">Work with us</a>
+          <a class="btn btn-ghost" href="#portfolio">See portfolio</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="false">
+        <img src="hero-mockup.png" alt="Citracel hero mockup — gold & green hero image" loading="lazy">
       </div>
     </div>
   </section>
@@ -128,39 +142,70 @@
   <!-- PORTFOLIO -->
   <h3 id="portfolio" class="section-title">Recent work — masterclass portfolio</h3>
 
-  <div class="grid">
-
+  <div class="grid" aria-label="Portfolio grid">
     <div class="card">
-      <div class="thumb"><img src="post-mock.png" alt="Poster mockup"></div>
+      <div class="thumb"><img src="post-mock.png" alt="Poster mockup — Citracel"></div>
       <h3>Poster mockup</h3>
       <p>Large-format promotional pieces for premium events and product launches.</p>
     </div>
 
     <div class="card">
-      <div class="thumb"><img src="business-card.png" alt="Business card"></div>
+      <div class="thumb"><img src="business-card.png" alt="Business card — Citracel"></div>
       <h3>Business card</h3>
       <p>Premium print-ready card with gold foil look and deep green base.</p>
     </div>
 
     <div class="card">
-      <div class="thumb"><img src="brand-board.png" alt="Brand board"></div>
+      <div class="thumb"><img src="brand-board.png" alt="Brand board — Citracel"></div>
       <h3>Brand board</h3>
       <p>Color, typography, iconography and consistent brand application.</p>
     </div>
 
     <div class="card">
-      <div class="thumb"><img src="instagram-grid.png" alt="Instagram grid"></div>
+      <div class="thumb"><img src="instagram-grid.png" alt="Instagram grid — Citracel"></div>
       <h3>Instagram grid</h3>
       <p>Grid layouts tailored to storytelling and conversion.</p>
     </div>
 
   </div>
 
+  <!-- CONTACT -->
+  <h3 class="section-title" style="margin-top:28px">Contact & Quick Brief</h3>
+
+  <div id="contact-grid">
+    <form class="contact-form card" role="form" aria-labelledby="contact-heading" action="mailto:citracelservice@gmail.com" method="post" enctype="text/plain">
+      <h4 id="contact-heading" style="margin:0 0 8px">Send a quick brief</h4>
+      <input name="name" placeholder="Your name" required />
+      <input name="email" placeholder="Email" type="email" required />
+      <input name="phone" placeholder="WhatsApp number" />
+      <input name="project" placeholder="Project (logo / poster / brand)" required />
+      <textarea name="brief" placeholder="Brief — what you want" required rows="6"></textarea>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button type="submit" class="btn" style="background:var(--gold);color:#07121a">Send Brief</button>
+        <a class="btn" href="https://wa.me/27632358989" target="_blank" rel="noopener" style="background:transparent;border:2px solid rgba(255,255,255,0.06)">WhatsApp</a>
+        <a class="btn" href="tel:+27632358989" style="background:transparent;border:2px solid rgba(255,255,255,0.06)">Call (063) 235-8989</a>
+      </div>
+    </form>
+
+    <aside class="profile card" aria-label="Contact details">
+      <div style="margin-bottom:10px"><strong>Mthokozisi Sthole</strong><div style="font-size:13px;color:var(--muted)">Creative Director</div></div>
+      <div style="margin-bottom:10px"><strong>Contact</strong><div style="margin-top:6px;color:var(--gold)">(063) 235-8989</div></div>
+      <div style="margin-bottom:10px"><strong>Email</strong><div style="margin-top:6px;color:var(--muted)">citracelservice@gmail.com</div></div>
+      <div><strong>Website</strong><div style="margin-top:6px"><a href="https://citracel.github.io/citracel-site/" target="_blank" rel="noopener" style="color:var(--gold)">citracel.github.io/citracel-site</a></div></div>
+    </aside>
+  </div>
+
 </main>
 
 <footer>
-  © 2025 Citracel Creative Services — The Power of Clean Creativity
+  <div class="container">© 2025 Citracel Creative Services — The Power of Clean Creativity</div>
 </footer>
 
+<!-- Floating WhatsApp + phone CTA -->
+<a class="floating-cta" href="https://wa.me/27632358989" target="_blank" rel="noopener" aria-label="Message Citracel on WhatsApp">
+  💬 WhatsApp
+  <span style="opacity:.9;font-weight:700;margin-left:6px;">(063) 235-8989</span>
+</a>
+
 </body>
-        </html>                             
+ </html>            
