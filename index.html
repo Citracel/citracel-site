@@ -1,213 +1,150 @@
-   <!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Citracel — World-Leading Creative Studio</title>
-  <meta name="description" content="Citracel — the world leader in clean commercial creativity. Brand systems, logos, posters and social experiences that outclass competition." />
-  <link rel="icon" href="images/favicon.png" type="image/png">
-  <meta name="theme-color" content="#0d2818" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Citracel — World-Leading Creative Agency</title>
+  <meta name="description" content="Citracel Creative Services — The Number 1 World-Leading Creative Agency. Elite branding, logo design, posters, social kits and master-level brand systems." />
+
+  <!-- Social -->
+  <meta property="og:title" content="Citracel — World-Leading Creative Agency">
+  <meta property="og:description" content="The Power of Clean Creativity — unmatched global creative mastery.">
+  <meta property="og:image" content="website-hero-pack.png">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <style>
-    :root{
-      --green-900:#072915; --gold:#d4af37; --white:#fff;
-      --bg-dark:linear-gradient(180deg,#072915 0%, #0d2818 70%);
-      --card-bg: rgba(255,255,255,0.03);
-      --max-width:1200px; --radius:12px;
+    :root {
+      --green:#0e2416;
+      --gold:#d4af37;
+      --white:#ffffff;
+      --radius:14px;
+      --max:1150px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg-dark);color:var(--white)}
-    .container{max-width:var(--max-width);margin:0 auto;padding:20px}
-    header{position:sticky;top:0;z-index:1200;background:linear-gradient(180deg,rgba(8,38,25,0.95),rgba(10,40,30,0.92));padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
-    .header-row{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--max-width);margin:0 auto;padding:0 18px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:72px;height:72px;border-radius:12px;object-fit:cover;background:#000;border:2px solid rgba(212,175,55,0.22)}
-    .brand h1{margin:0;font-size:16px;font-weight:900}
-    .brand p{margin:0;font-size:12px;opacity:.9}
-    .nav-cta{display:flex;gap:10px;align-items:center}
-    .btn{display:inline-block;padding:10px 16px;border-radius:12px;font-weight:800;text-decoration:none}
-    .btn-primary{background:linear-gradient(180deg,var(--gold),#c79d2b);color:#081}
-    .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.08)}
-    .hero{ text-align:center;padding:64px 20px 40px;position:relative;overflow:hidden }
-    .hero-mark{width:140px;height:140px;border-radius:18px;object-fit:cover;margin:0 auto 18px;display:block}
-    .hero h2{font-size:34px;margin:6px 0 8px;font-weight:900}
-    .hero p{margin:0 auto 16px;max-width:720px;opacity:.95}
-    .card{background:var(--card-bg);border-radius:12px;padding:18px;margin:18px 0;border:1px solid rgba(255,255,255,0.03)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-    .portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:12px}
-    .thumb{border-radius:12px;overflow:hidden;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center;padding:8px}
-    .thumb img{width:100%;display:block;object-fit:cover}
-    .pricing{display:flex;gap:12px;flex-wrap:wrap}
-    .price-card{flex:1 1 220px;border-radius:12px;padding:16px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
-    footer{padding:22px 20px;text-align:center;opacity:.9}
-    .whatsapp{position:fixed;right:16px;bottom:18px;width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#28B463,#0A4C75);color:#fff;font-weight:900;text-decoration:none}
-    @media (max-width:720px){ .hero h2{font-size:26px} .logo{width:64px;height:64px} .hero-mark{width:110px;height:110px} }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0; font-family:Inter, sans-serif;
+      background:linear-gradient(#05250f,#0e2416,#05250f);
+      color:white;
+    }
+
+    header{
+      text-align:center;
+      padding:35px 20px 15px;
+    }
+    header img{
+      width:120px; height:120px;
+      border-radius:18px;
+      object-fit:cover;
+      border:2px solid var(--gold);
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    }
+    header h1{
+      margin:14px 0 3px;
+      font-size:27px;
+      font-weight:800;
+    }
+    header p{margin:0; opacity:.9;}
+
+    .btn{
+      padding:12px 20px;
+      border-radius:var(--radius);
+      font-weight:700;
+      text-decoration:none;
+      margin:5px;
+      display:inline-block;
+    }
+    .btn-gold{
+      background:var(--gold); color:#000;
+      box-shadow:0 8px 20px rgba(212,175,55,0.3);
+    }
+    .btn-outline{
+      border:2px solid rgba(255,255,255,0.3);
+      color:white;
+    }
+
+    main{max-width:var(--max); margin:auto; padding:20px;}
+
+    .section-title{
+      font-size:26px; font-weight:800;
+      margin:35px 0 10px;
+      color:var(--gold);
+    }
+
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:12px;
+    }
+    .portfolio-grid img{
+      width:100%; border-radius:var(--radius);
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    footer{
+      margin-top:50px;
+      background:#031e0d;
+      padding:20px;
+      text-align:center;
+      color:white;
+      font-size:13px;
+    }
   </style>
 </head>
+
 <body>
-  <header aria-label="Site header">
-    <div class="header-row">
-      <div class="brand" role="banner">
-        <!-- match the repo filename: logo-green-gold-web-version.png -->
-        <img class="logo" src="images/logo-green-gold-web-version.png" alt="Citracel logo">
-        <div>
-          <h1>Citracel</h1>
-          <p>Creative Services — World Leader</p>
-        </div>
-      </div>
 
-      <nav class="nav-cta" aria-label="Primary actions">
-        <a class="btn btn-primary" href="mailto:citracelservice@gmail.com">Get a Quote</a>
-        <a class="btn btn-outline" href="#portfolio">See Portfolio</a>
-      </nav>
+<header>
+  <img src="logo-hero-version.png" alt="Citracel logo">
+  <h1>Citracel Creative Services</h1>
+  <p>The Power of Clean Creativity</p>
+
+  <div style="margin-top:12px;">
+    <a class="btn btn-gold" href="mailto:citracelservice@gmail.com">Get a Quote</a>
+    <a class="btn btn-outline" href="#portfolio">See Portfolio</a>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2 class="section-title">Premium branding that converts</h2>
+    <p style="opacity:.92;">
+      Citracel crafts world-leading logos, posters, brand systems,
+      identity systems, social kits, and elite-level visual assets built
+      for conversion, prestige, and commercial power.
+    </p>
+  </section>
+
+  <section id="portfolio">
+    <h2 class="section-title">Recent work — masterclass portfolio</h2>
+
+    <div class="portfolio-grid">
+
+      <img src="hero-mockup.png" alt="Hero mockup — Citracel" onerror="this.style.display='none'">
+      <img src="poster-mockup.png" alt="Poster mockup — Citracel" onerror="this.style.display='none'">
+      <img src="business-card-black-gold.png" alt="Business card — Citracel" onerror="this.style.display='none'">
+      <img src="brand-board-full-system.png" alt="Brand board full system — Citracel" onerror="this.style.display='none'">
+      <img src="instagram-grid.png" alt="Instagram grid — Citracel" onerror="this.style.display='none'">
+      <img src="website-hero-pack.png" alt="Website hero pack — Citracel" onerror="this.style.display='none'">
+      <img src="packaging-mockup.png" alt="Packaging mockup — Citracel" onerror="this.style.display='none'">
+      <img src="social-ads-pack.png" alt="Social ads pack — Citracel" onerror="this.style.display='none'">
+      <img src="stationery-set-mockup.jpg" alt="Stationery mockup — Citracel" onerror="this.style.display='none'">
+      <img src="color-system-sheet.png" alt="Color system — Citracel" onerror="this.style.display='none'">
+      <img src="typography-sheet.png" alt="Typography sheet — Citracel" onerror="this.style.display='none'">
+      <img src="document-design.png" alt="Document design — Citracel" onerror="this.style.display='none'">
+      <img src="case-study-layout-template.png" alt="Case study layout — Citracel" onerror="this.style.display='none'">
+
     </div>
-  </header>
+  </section>
 
-  <main class="container" role="main">
+</main>
 
-    <section class="hero" aria-labelledby="heroTitle">
-      <!-- match the repo filename: logo-hero-version.png -->
-      <img class="hero-mark" src="images/logo-hero-version.png" alt="Citracel logo mark">
-      <h2 id="heroTitle">We are the number one creative studio in the world</h2>
-      <p>We design market-leading brands, posters, and social systems. Our work sets the standard — not competes with it.</p>
-      <div style="margin-top:12px">
-        <a class="btn btn-primary" href="mailto:citracelservice@gmail.com">Work with us</a>
-        <a class="btn btn-outline" href="#contact">Request a strategy session</a>
-      </div>
-    </section>
+<footer>
+  © 2025 Citracel — The Power of Clean Creativity  
+</footer>
 
-    <section>
-      <h2 style="color:var(--gold);margin:8px 0;">Recent work — masterclass portfolio</h2>
-      <div class="portfolio" role="list">
-        <!-- I matched each image to the filenames from your repo screenshot -->
-        <div class="thumb" role="listitem" aria-label="Hero mockup">
-          <img src="images/hero-mockup.png" alt="Hero mockup — Citracel">
-        </div>
-
-        <div class="thumb" role="listitem" aria-label="Poster mockup">
-          <img src="images/poster-mockup.png" alt="Poster mockup — Citracel">
-        </div>
-
-        <div class="thumb" role="listitem" aria-label="Business card">
-          <img src="images/business-card-black-gold.png" alt="Business card — Citracel">
-        </div>
-
-        <div class="thumb" role="listitem" aria-label="Brand board">
-          <img src="images/brand-board-full-system.png" alt="Brand board — Citracel">
-        </div>
-
-        <div class="thumb" role="listitem" aria-label="Instagram grid">
-          <img src="images/instagram-grid.png" alt="Instagram grid — Citracel">
-        </div>
-
-        <div class="thumb" role="listitem" aria-label="Website hero pack">
-          <img src="images/website-hero-pack.png" alt="Website hero pack — Citracel">
-        </div>
-
-        <div class="thumb" role="listitem" aria-label="Packaging mockup">
-          <img src="images/packaging-mockup.png" alt="Packaging mockup — Citracel">
-        </div>
-
-        <div class="thumb" role="listitem" aria-label="Social ads pack">
-          <img src="images/social-ads-pack.png" alt="Social ads pack — Citracel">
-        </div>
-
-        <div class="thumb" role="listitem" aria-label="Stationery">
-          <img src="images/stationery-set-mockup.jpg" alt="Stationery mockup — Citracel">
-        </div>
-
-      </div>
-    </section>
-
-    <section style="margin-top:18px">
-      <h2 style="color:var(--gold)">Systems & Brand sheets</h2>
-      <div class="grid">
-        <div class="card">
-          <strong>Color system</strong>
-          <p style="margin:8px 0 0;"><img src="images/color-system-sheet.png" alt="Color system" style="width:100%;border-radius:10px"></p>
-        </div>
-        <div class="card">
-          <strong>Typography & docs</strong>
-          <p style="margin:8px 0 0;"><img src="images/typography-sheet.png" alt="Typography sheet" style="width:100%;border-radius:10px"></p>
-        </div>
-        <div class="card">
-          <strong>Case study template</strong>
-          <p style="margin:8px 0 0;"><img src="images/case-study-layout-template.png" alt="Case study template" style="width:100%;border-radius:10px"></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" style="margin-top:18px">
-      <h2 style="color:var(--gold)">Starter pricing</h2>
-      <div class="pricing">
-        <div class="price-card">
-          <strong>Poster Redesign</strong>
-          <div style="margin:8px 0;font-weight:800;color:var(--gold)">R120</div>
-          <p style="opacity:.9">Quick redesign for promotional posters.</p>
-        </div>
-        <div class="price-card">
-          <strong>Logo Refresh</strong>
-          <div style="margin:8px 0;font-weight:800;color:var(--gold)">R250</div>
-          <p style="opacity:.9">Polish and deliver all production files.</p>
-        </div>
-        <div class="price-card">
-          <strong>Brand Start Pack</strong>
-          <div style="margin:8px 0;font-weight:800;color:var(--gold)">R450</div>
-          <p style="opacity:.9">Logo + poster + IG starter kit.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" style="margin-top:18px">
-      <h2 style="color:var(--gold)">Contact & Quick Brief</h2>
-      <div style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
-        <div class="card">
-          <form action="mailto:citracelservice@gmail.com" method="post" enctype="text/plain">
-            <input name="name" placeholder="Your name" required>
-            <input name="email" type="email" placeholder="Email" required>
-            <input name="phone" placeholder="WhatsApp number">
-            <input name="project" placeholder="Project (logo/poster/brand)" required>
-            <textarea name="details" placeholder="Brief - what you want" rows="6" required></textarea>
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <button class="btn btn-primary" type="submit">Send Brief</button>
-              <a class="btn" href="https://wa.me/27632358989" style="background:var(--gold);color:#07121a;padding:10px 14px;border-radius:10px;font-weight:900">WhatsApp</a>
-            </div>
-          </form>
-        </div>
-
-        <aside style="display:flex;flex-direction:column;gap:10px">
-          <div class="card"><strong>Mthokozisi Sthole</strong><div style="margin-top:6px">Creative Director</div></div>
-          <div class="card"><strong>Contact</strong><div style="margin-top:6px">(063) 235-8989 • citracelservice@gmail.com</div></div>
-          <div class="card"><strong>Website</strong><div style="margin-top:6px"><a href="https://citracel.github.io/citracel-site/" style="color:var(--gold)">citracel.github.io/citracel-site/</a></div></div>
-        </aside>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2025 Citracel Creative Services — The Power of Clean Creativity
-  </footer>
-
-  <a class="whatsapp" href="https://wa.me/27632358989">💬</a>
-
-<script>
-  // sticky header
-  (function(){
-    const header = document.querySelector('header');
-    function onScroll(){ if(window.scrollY > 48) header.classList.add('sticky'); else header.classList.remove('sticky'); }
-    window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-    // fallback: if an image fails to load, switch to website-hero-pack (exists)
-    document.querySelectorAll('img').forEach(img=>{
-      img.addEventListener('error', ()=>{
-        const fallback = 'images/website-hero-pack.png';
-        if(!img.dataset.fallbackApplied){
-          img.dataset.fallbackApplied = '1';
-          img.src = fallback;
-        }
-      });
-    });
-  })();
-</script>
 </body>
-            </html>             
+</html>              
