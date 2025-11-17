@@ -1,150 +1,234 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Citracel — World-Leading Creative Agency</title>
-  <meta name="description" content="Citracel Creative Services — The Number 1 World-Leading Creative Agency. Elite branding, logo design, posters, social kits and master-level brand systems." />
-
-  <!-- Social -->
-  <meta property="og:title" content="Citracel — World-Leading Creative Agency">
-  <meta property="og:description" content="The Power of Clean Creativity — unmatched global creative mastery.">
-  <meta property="og:image" content="website-hero-pack.png">
-
-  <link rel="icon" type="image/png" href="favicon.png">
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Citracel — The Power of Clean Creativity</title>
+  <meta name="description" content="Citracel Creative Services — premium branding, posters & social systems. Work with Mthokozisi Sthole, Creative Director." />
+  <meta property="og:title" content="Citracel Creative Services" />
+  <meta property="og:description" content="World-class branding & design — crafted to convert, build trust and scale." />
+  <meta property="og:image" content="https://citracel.github.io/citracel-site/hero-mockup.png" />
+  <link rel="icon" href="./favicon.png" />
   <style>
-    :root {
-      --green:#0e2416;
+    /* Minimal, modern, accessible layout (green + gold theme) */
+    :root{
+      --green:#0f3d28;
       --gold:#d4af37;
       --white:#ffffff;
-      --radius:14px;
+      --muted:#e9ecef;
+      --card:#0c2f20;
       --max:1150px;
+      --radius:14px;
+      --gap:16px;
     }
-
-    *{box-sizing:border-box;}
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0; font-family:Inter, sans-serif;
-      background:linear-gradient(#05250f,#0e2416,#05250f);
-      color:white;
+      margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--green),#0b2e20);
+      color:#fff;-webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
-
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px}
     header{
-      text-align:center;
-      padding:35px 20px 15px;
+      display:flex;gap:12px;align-items:center;justify-content:space-between;
+      padding:8px 0;background:transparent;position:sticky;top:0;
+      z-index:999;backdrop-filter:blur(6px);
     }
-    header img{
-      width:120px; height:120px;
-      border-radius:18px;
-      object-fit:cover;
-      border:2px solid var(--gold);
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    }
-    header h1{
-      margin:14px 0 3px;
-      font-size:27px;
-      font-weight:800;
-    }
-    header p{margin:0; opacity:.9;}
+    .brand {display:flex;gap:12px;align-items:center}
+    .logo {width:72px;height:72px;border-radius:12px;overflow:hidden;border:2px solid rgba(212,175,55,0.22);box-shadow:0 8px 28px rgba(0,0,0,0.35);}
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand h1{font-size:18px;margin:0 0 2px 0;letter-spacing:0.4px}
+    .brand p{margin:0;font-size:12px;opacity:.9}
 
+    .cta {display:flex;gap:10px;align-items:center}
     .btn{
-      padding:12px 20px;
-      border-radius:var(--radius);
-      font-weight:700;
-      text-decoration:none;
-      margin:5px;
-      display:inline-block;
+      display:inline-block;padding:10px 16px;border-radius:12px;font-weight:800;
+      box-shadow:0 10px 26px rgba(0,0,0,0.18)
     }
-    .btn-gold{
-      background:var(--gold); color:#000;
-      box-shadow:0 8px 20px rgba(212,175,55,0.3);
+    .btn-primary{background:linear-gradient(180deg,var(--gold),#c79b2a);color:#07121a}
+    .btn-outline{border:2px solid rgba(255,255,255,0.12);background:transparent;color:#fff}
+
+    /* HERO */
+    .hero{margin-top:18px;background:linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.08));border-radius:var(--radius);padding:36px;display:grid;grid-template-columns:1fr 420px;gap:26px;align-items:center}
+    .hero-left h2{font-size:34px;line-height:1.03;margin:0 0 12px;font-weight:900}
+    .hero-left p{margin:0 0 18px;color:rgba(255,255,255,0.92);max-width:60ch}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-visual{border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.45)}
+    .hero-visual img{display:block;width:100%;height:100%;object-fit:cover}
+
+    /* grid for portfolio */
+    .section {margin-top:34px}
+    .grid-3{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
     }
-    .btn-outline{
-      border:2px solid rgba(255,255,255,0.3);
-      color:white;
+    .card{
+      background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.12));
+      border-radius:12px;padding:16px;box-shadow:0 14px 36px rgba(0,0,0,0.35);
+    }
+    .card img{width:100%;height:200px;object-fit:cover;border-radius:10px}
+
+    /* list style portfolio for mobile */
+    .portfolio-list .row{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;background:rgba(0,0,0,0.18);margin-bottom:12px}
+    .portfolio-list img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+
+    /* contact block */
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
+    form{display:grid;gap:10px}
+    input,textarea{width:100%;padding:10px;border-radius:10px;border:0}
+    textarea{min-height:120px}
+
+    footer{margin-top:28px;padding:22px;text-align:center;color:rgba(255,255,255,0.85)}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr 320px}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .wrap{padding:16px}
+      header{flex-direction:column;align-items:flex-start}
+      .hero{grid-template-columns:1fr;padding:22px}
+      .grid-3{grid-template-columns:1fr}
+      .hero-left h2{font-size:28px}
+      .hero-visual img{height:260px}
+      .contact-grid{grid-template-columns:1fr}
     }
 
-    main{max-width:var(--max); margin:auto; padding:20px;}
-
-    .section-title{
-      font-size:26px; font-weight:800;
-      margin:35px 0 10px;
-      color:var(--gold);
-    }
-
-    .portfolio-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:12px;
-    }
-    .portfolio-grid img{
-      width:100%; border-radius:var(--radius);
-      box-shadow:0 10px 25px rgba(0,0,0,0.4);
-    }
-
-    footer{
-      margin-top:50px;
-      background:#031e0d;
-      padding:20px;
-      text-align:center;
-      color:white;
-      font-size:13px;
-    }
+    /* utility */
+    .muted{opacity:.85;font-size:14px}
+    .accent{color:var(--gold);font-weight:800}
   </style>
 </head>
-
 <body>
+  <div class="wrap" role="document">
 
-<header>
-  <img src="logo-hero-version.png" alt="Citracel logo">
-  <h1>Citracel Creative Services</h1>
-  <p>The Power of Clean Creativity</p>
+    <!-- HEADER -->
+    <header role="banner" aria-label="Site header">
+      <div class="brand">
+        <a class="logo" href="./">
+          <img src="./logo.png" alt="Citracel logo" loading="lazy">
+        </a>
+        <div>
+          <h1>Citracel Creative Services</h1>
+          <p class="muted">The Power of Clean Creativity — Mthokozisi Sthole</p>
+        </div>
+      </div>
 
-  <div style="margin-top:12px;">
-    <a class="btn btn-gold" href="mailto:citracelservice@gmail.com">Get a Quote</a>
-    <a class="btn btn-outline" href="#portfolio">See Portfolio</a>
+      <div class="cta" role="navigation" aria-label="Primary actions">
+        <a class="btn btn-primary" href="mailto:citracelservice@gmail.com" aria-label="Get a quote">Get a quote</a>
+        <a class="btn btn-outline" href="#portfolio">Portfolio</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" role="region" aria-label="Hero - Citracel">
+      <div class="hero-left">
+        <h2>World-class creative leadership — no competition.</h2>
+        <p>We design premium, commercially-driven brands and visuals that turn attention into trust and customers. Portfolio, packages, and fast delivery — created by Mthokozisi Sthole, Creative Director.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:citracelservice@gmail.com">Work with us</a>
+          <a class="btn btn-outline" href="#portfolio">See portfolio</a>
+        </div>
+        <div style="margin-top:18px" class="muted">Contact — <strong class="accent">063 235 8989</strong> • <a href="https://citracel.github.io/citracel-site/" style="color:var(--gold)">citracel.github.io</a></div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="false">
+        <!-- hero visual: uses your uploaded hero-mockup.png -->
+        <img src="./hero-mockup.png" alt="Citracel hero — gold on dark" loading="lazy" width="640" height="480">
+      </div>
+    </section>
+
+    <!-- PORTFOLIO HIGHLIGHTS -->
+    <section class="section" id="portfolio" aria-label="Portfolio">
+      <h3 style="font-size:22px;margin:8px 0 12px;color:var(--gold)">Recent work — masterclass portfolio</h3>
+
+      <!-- compact gallery -->
+      <div class="grid-3" aria-hidden="false">
+        <article class="card" aria-labelledby="p1">
+          <h4 id="p1" style="margin:0 0 10px;">Portfolio cover</h4>
+          <img src="./brand-board.png" alt="Citracel brand board" loading="lazy">
+        </article>
+
+        <article class="card" aria-labelledby="p2">
+          <h4 id="p2" style="margin:0 0 10px;">Poster mockup</h4>
+          <img src="./poster-mock.png" alt="Poster mockup — Citracel" loading="lazy">
+        </article>
+
+        <article class="card" aria-labelledby="p3">
+          <h4 id="p3" style="margin:0 0 10px;">Business card</h4>
+          <img src="./business-card.png" alt="Business card mockup — Citracel" loading="lazy">
+        </article>
+      </div>
+
+      <!-- second row -->
+      <div class="grid-3" style="margin-top:18px">
+        <article class="card" aria-labelledby="p4">
+          <h4 id="p4" style="margin:0 0 10px;">Instagram grid</h4>
+          <img src="./instagram-grid.png" alt="Instagram grid — Citracel" loading="lazy">
+        </article>
+
+        <article class="card" aria-labelledby="p5">
+          <h4 id="p5" style="margin:0 0 10px;">Website hero pack</h4>
+          <img src="./hero-mockup.png" alt="Website hero pack — Citracel" loading="lazy">
+        </article>
+
+        <article class="card" aria-labelledby="p6">
+          <h4 id="p6" style="margin:0 0 10px;">Packaging & mockups</h4>
+          <img src="./poster-mock.png" alt="Packaging mockup — Citracel" loading="lazy">
+        </article>
+      </div>
+    </section>
+
+    <!-- BRIEF & CONTACT -->
+    <section class="section" aria-label="Contact & Brief" style="margin-top:26px;">
+      <div class="contact-grid">
+        <form class="card" aria-label="Quick brief" action="mailto:citracelservice@gmail.com" method="post" enctype="text/plain">
+          <h4 style="margin-top:0">Contact & quick brief</h4>
+          <input name="name" placeholder="Your name" required>
+          <input name="email" placeholder="Email" type="email" required>
+          <input name="phone" placeholder="WhatsApp number">
+          <input name="project" placeholder="Project (logo/poster/brand)" required>
+          <textarea name="details" placeholder="Brief — what you want" required></textarea>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <button class="btn btn-primary" type="submit">Send brief</button>
+            <a class="btn btn-outline" href="https://wa.me/27632358989" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </form>
+
+        <aside class="card" aria-labelledby="contactInfo">
+          <h4 id="contactInfo" style="margin-top:0">Mthokozisi Sthole</h4>
+          <div class="muted">Creative Director</div>
+          <div style="margin-top:12px">
+            <strong>Contact</strong>
+            <div class="muted">(+27) 63 235 8989</div>
+            <div style="margin-top:12px"><strong>Website</strong>
+              <div><a href="https://citracel.github.io/citracel-site/" style="color:var(--gold)">citracel.github.io</a></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer aria-label="Footer">
+      <div class="muted">© 2025 Citracel Creative Services — The Power of Clean Creativity</div>
+    </footer>
+
   </div>
-</header>
 
-<main>
-
-  <section>
-    <h2 class="section-title">Premium branding that converts</h2>
-    <p style="opacity:.92;">
-      Citracel crafts world-leading logos, posters, brand systems,
-      identity systems, social kits, and elite-level visual assets built
-      for conversion, prestige, and commercial power.
-    </p>
-  </section>
-
-  <section id="portfolio">
-    <h2 class="section-title">Recent work — masterclass portfolio</h2>
-
-    <div class="portfolio-grid">
-
-      <img src="hero-mockup.png" alt="Hero mockup — Citracel" onerror="this.style.display='none'">
-      <img src="poster-mockup.png" alt="Poster mockup — Citracel" onerror="this.style.display='none'">
-      <img src="business-card-black-gold.png" alt="Business card — Citracel" onerror="this.style.display='none'">
-      <img src="brand-board-full-system.png" alt="Brand board full system — Citracel" onerror="this.style.display='none'">
-      <img src="instagram-grid.png" alt="Instagram grid — Citracel" onerror="this.style.display='none'">
-      <img src="website-hero-pack.png" alt="Website hero pack — Citracel" onerror="this.style.display='none'">
-      <img src="packaging-mockup.png" alt="Packaging mockup — Citracel" onerror="this.style.display='none'">
-      <img src="social-ads-pack.png" alt="Social ads pack — Citracel" onerror="this.style.display='none'">
-      <img src="stationery-set-mockup.jpg" alt="Stationery mockup — Citracel" onerror="this.style.display='none'">
-      <img src="color-system-sheet.png" alt="Color system — Citracel" onerror="this.style.display='none'">
-      <img src="typography-sheet.png" alt="Typography sheet — Citracel" onerror="this.style.display='none'">
-      <img src="document-design.png" alt="Document design — Citracel" onerror="this.style.display='none'">
-      <img src="case-study-layout-template.png" alt="Case study layout — Citracel" onerror="this.style.display='none'">
-
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  © 2025 Citracel — The Power of Clean Creativity  
-</footer>
-
+  <script>
+    // lightweight sticky header shadow toggle
+    (function(){
+      const header = document.querySelector('header');
+      function onScroll(){
+        if(window.scrollY > 40) header.style.boxShadow = '0 12px 38px rgba(0,0,0,0.4)';
+        else header.style.boxShadow = 'none';
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+  </script>
 </body>
-</html>              
+ </html> 
+    
